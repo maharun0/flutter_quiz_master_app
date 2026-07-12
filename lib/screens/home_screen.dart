@@ -12,6 +12,8 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
+    final isDark = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Quiz Master'),
@@ -25,9 +27,11 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
       body: Container(
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [Color(0xFFF5F7FB), Color(0xFFE8EEF9)],
+            colors: isDark
+                ? [const Color(0xFF0B1220), const Color(0xFF111827)]
+                : [const Color(0xFFF5F7FB), const Color(0xFFE8EEF9)],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),

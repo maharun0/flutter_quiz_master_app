@@ -18,6 +18,7 @@ class QuizScreen extends StatelessWidget {
     return AnimatedBuilder(
       animation: controller,
       builder: (context, _) {
+        final colors = Theme.of(context).colorScheme;
         final matchingCategories = controller.activeCategory?.id == categoryId
             ? [controller.activeCategory!]
             : [];
@@ -62,11 +63,11 @@ class QuizScreen extends StatelessWidget {
                   width: double.infinity,
                   padding: const EdgeInsets.all(18),
                   decoration: BoxDecoration(
-                    color: Theme.of(context).colorScheme.surface,
+                    color: colors.surfaceContainerHigh,
                     borderRadius: BorderRadius.circular(20),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withValues(alpha: 0.08),
+                        color: Colors.black.withValues(alpha: 0.18),
                         blurRadius: 18,
                         offset: const Offset(0, 8),
                       ),
@@ -98,18 +99,21 @@ class QuizScreen extends StatelessWidget {
                           decoration: BoxDecoration(
                             color: isSelected
                                 ? Theme.of(context).colorScheme.primaryContainer
-                                : Theme.of(context).colorScheme.surface,
+                                : colors.surfaceContainerHigh,
                             borderRadius: BorderRadius.circular(16),
                             border: Border.all(
                               color: isSelected
                                   ? Theme.of(context).colorScheme.primary
-                                  : Theme.of(context).dividerColor,
+                                  : colors.outlineVariant.withValues(
+                                      alpha: 0.6,
+                                    ),
                               width: 1.5,
                             ),
                           ),
                           child: Text(
                             option,
-                            style: Theme.of(context).textTheme.titleMedium,
+                            style: Theme.of(context).textTheme.titleMedium
+                                ?.copyWith(color: colors.onSurface),
                           ),
                         ),
                       );

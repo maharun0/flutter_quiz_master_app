@@ -24,6 +24,8 @@ class ResultScreen extends StatelessWidget {
       );
     }
 
+    final colors = Theme.of(context).colorScheme;
+
     return Scaffold(
       appBar: AppBar(title: const Text('Result')),
       body: Padding(
@@ -35,7 +37,7 @@ class ResultScreen extends StatelessWidget {
               width: double.infinity,
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.primaryContainer,
+                color: colors.primaryContainer,
                 borderRadius: BorderRadius.circular(24),
               ),
               child: Column(
@@ -45,6 +47,7 @@ class ResultScreen extends StatelessWidget {
                     result.categoryTitle,
                     style: Theme.of(context).textTheme.titleLarge?.copyWith(
                       fontWeight: FontWeight.w700,
+                      color: colors.onPrimaryContainer,
                     ),
                   ),
                   const SizedBox(height: 8),
@@ -52,10 +55,16 @@ class ResultScreen extends StatelessWidget {
                     'Final Score: ${result.correctAnswers}/${result.totalQuestions}',
                     style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                       fontWeight: FontWeight.w800,
+                      color: colors.onPrimaryContainer,
                     ),
                   ),
                   const SizedBox(height: 6),
-                  Text('Percentage: ${result.percentage}%'),
+                  Text(
+                    'Percentage: ${result.percentage}%',
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                      color: colors.onPrimaryContainer,
+                    ),
+                  ),
                 ],
               ),
             ),

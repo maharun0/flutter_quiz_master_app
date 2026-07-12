@@ -59,23 +59,46 @@ class _QuizMasterAppState extends State<QuizMasterApp> {
           themeMode: widget.controller.isDarkMode
               ? ThemeMode.dark
               : ThemeMode.light,
-          theme: ThemeData(
-            useMaterial3: true,
-            colorScheme: ColorScheme.fromSeed(
-              seedColor: const Color(0xFF1D4ED8),
-            ),
-            scaffoldBackgroundColor: const Color(0xFFF5F7FB),
-          ),
-          darkTheme: ThemeData(
-            useMaterial3: true,
-            colorScheme: ColorScheme.fromSeed(
-              seedColor: const Color(0xFF38BDF8),
-              brightness: Brightness.dark,
-            ),
-          ),
+          theme: _lightTheme,
+          darkTheme: _darkTheme,
           routerConfig: _router,
         );
       },
     );
   }
 }
+
+final ThemeData _lightTheme = ThemeData(
+  useMaterial3: true,
+  colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF1D4ED8))
+      .copyWith(
+        surface: const Color(0xFFF8FAFC),
+        primaryContainer: const Color(0xFFC7D2FE),
+        onPrimaryContainer: const Color(0xFF0F172A),
+      ),
+  scaffoldBackgroundColor: const Color(0xFFF5F7FB),
+);
+
+final ThemeData _darkTheme = ThemeData(
+  useMaterial3: true,
+  colorScheme:
+      ColorScheme.fromSeed(
+        seedColor: const Color(0xFF38BDF8),
+        brightness: Brightness.dark,
+      ).copyWith(
+        surface: const Color(0xFF0F172A),
+        onSurface: const Color(0xFFF8FAFC),
+        surfaceContainerLow: const Color(0xFF111827),
+        surfaceContainer: const Color(0xFF172033),
+        surfaceContainerHigh: const Color(0xFF1E293B),
+        surfaceContainerHighest: const Color(0xFF273449),
+        primaryContainer: const Color(0xFF1D4ED8),
+        onPrimaryContainer: const Color(0xFFF8FAFC),
+      ),
+  scaffoldBackgroundColor: const Color(0xFF0B1220),
+  appBarTheme: const AppBarTheme(
+    backgroundColor: Color(0xFF0B1220),
+    foregroundColor: Color(0xFFF8FAFC),
+    surfaceTintColor: Colors.transparent,
+  ),
+);
