@@ -1,17 +1,90 @@
-# flutter_quiz_master_app
+# Quiz Master
 
-A new Flutter project.
+A feature-rich Flutter quiz application built for the Module 4 assignment.
+
+## Overview
+
+Quiz Master is a local-only quiz app with theme persistence, score tracking, history storage, and a clean multi-screen flow. It uses `GoRouter` for navigation and `SharedPreferences` for saving user preferences and quiz history.
+
+## Features
+
+- Home dashboard with welcome banner, statistics, and category cards
+- Light and dark theme toggle with persistence
+- Quiz screen with question counter, progress indicator, and MCQ selection
+- Result screen with score summary and retry/navigation actions
+- SharedPreferences-based tracking for:
+	- total attempts
+	- highest score
+	- last score
+	- last 10 quiz results
+- No API usage; all data is stored locally
+
+## Tech Stack
+
+- Flutter
+- Dart
+- GoRouter
+- SharedPreferences
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+### Prerequisites
 
-A few resources to get you started if this is your first Flutter project:
+- Flutter SDK installed
+- A connected device or emulator
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+### Install dependencies
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```bash
+flutter pub get
+```
+
+### Run the app
+
+```bash
+flutter run
+```
+
+### Run tests
+
+```bash
+flutter test
+```
+
+## Project Structure
+
+```text
+lib/
+	app.dart
+	main.dart
+	controllers/
+	models/
+	screens/
+	services/
+	widgets/
+```
+
+## Notes
+
+- Quiz content is hardcoded locally in the app.
+- Theme and quiz history persist after app restart.
+- The app is intentionally kept simple and focused on the assignment requirements.
+
+## Assignment Checklist
+
+- GoRouter integration
+- Theme toggle and persistence
+- SharedPreferences integration
+- Home dashboard
+- Statistics section
+- Category cards
+- Quiz screen
+- Progress indicator
+- MCQ selection
+- Result screen
+- Play again feature
+- Back to home feature
+- Total attempts tracking
+- Highest score tracking
+- Last score tracking
+- Last 10 quiz history tracking
