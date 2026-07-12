@@ -21,7 +21,9 @@ class QuizScreen extends StatelessWidget {
         final matchingCategories = controller.activeCategory?.id == categoryId
             ? [controller.activeCategory!]
             : [];
-        final category = matchingCategories.isEmpty ? null : matchingCategories.first;
+        final category = matchingCategories.isEmpty
+            ? null
+            : matchingCategories.first;
         if (category == null) {
           return Scaffold(
             appBar: AppBar(title: const Text('Quiz Master')),
@@ -49,7 +51,8 @@ class QuizScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 10),
                 LinearProgressIndicator(
-                  value: (controller.currentQuestionIndex + 1) /
+                  value:
+                      (controller.currentQuestionIndex + 1) /
                       controller.activeQuestions.length,
                   minHeight: 8,
                   borderRadius: BorderRadius.circular(99),
@@ -72,8 +75,8 @@ class QuizScreen extends StatelessWidget {
                   child: Text(
                     question?.question ?? '',
                     style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                          fontWeight: FontWeight.w700,
-                        ),
+                      fontWeight: FontWeight.w700,
+                    ),
                   ),
                 ),
                 const SizedBox(height: 20),
@@ -84,7 +87,8 @@ class QuizScreen extends StatelessWidget {
                         const SizedBox(height: 12),
                     itemBuilder: (context, index) {
                       final option = question!.options[index];
-                      final isSelected = controller.selectedOptionIndex == index;
+                      final isSelected =
+                          controller.selectedOptionIndex == index;
                       return InkWell(
                         onTap: () => controller.selectOption(index),
                         borderRadius: BorderRadius.circular(16),
@@ -119,7 +123,8 @@ class QuizScreen extends StatelessWidget {
                     onPressed: controller.canProceed
                         ? () async {
                             await controller.goNext();
-                            if (controller.lastResult != null && context.mounted) {
+                            if (controller.lastResult != null &&
+                                context.mounted) {
                               context.go('/result');
                             }
                           }
